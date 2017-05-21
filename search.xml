@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[tb]]></title>
+      <url>http://yoursite.com/2017/05/21/tb/</url>
+      <content type="html"><![CDATA[<p>sfsdkjf sdfkj 测试同步</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[如何写jquery插件]]></title>
       <url>http://yoursite.com/2017/05/21/%E5%A6%82%E4%BD%95%E5%86%99jquery%E6%8F%92%E4%BB%B6/</url>
       <content type="html"><![CDATA[<h3 id="jquery的插件机制"><a href="#jquery的插件机制" class="headerlink" title="jquery的插件机制"></a>jquery的插件机制</h3><ul>
