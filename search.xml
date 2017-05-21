@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[如何写jquery插件]]></title>
+      <url>http://yoursite.com/2017/05/21/%E5%A6%82%E4%BD%95%E5%86%99jquery%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<h3 id="jquery的插件机制"><a href="#jquery的插件机制" class="headerlink" title="jquery的插件机制"></a>jquery的插件机制</h3><ul>
+<li>jQuery.extend(object) </li>
+<li>jQuery.extend([deep], target, object1, [objectN])</li>
+<li>jQuery.fn.extend(object)</li>
+</ul>
+<p><strong>代码示例</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">//闭包限定命名空间</div><div class="line">(function ($) &#123;</div><div class="line">    $.fn.extend(&#123;</div><div class="line">        "highLight": function (options) &#123;</div><div class="line">            //检测用户传进来的参数是否合法</div><div class="line">            if (!isValid(options))</div><div class="line">                return this;</div><div class="line">            var opts = $.extend(&#123;&#125;, defaluts, options); //使用jQuery.extend 覆盖插件默认参数</div><div class="line">            return this.each(function () &#123;  //这里的this 就是 jQuery对象。这里return 为了支持链式调用</div><div class="line">                //遍历所有的要高亮的dom,当调用 highLight()插件的是一个集合的时候。</div><div class="line">                var $this = $(this); //获取当前dom 的 jQuery对象，这里的this是当前循环的dom</div><div class="line">                //根据参数来设置 dom的样式</div><div class="line">                $this.css(&#123;</div><div class="line">                    backgroundColor: opts.background,</div><div class="line">                    color: opts.foreground</div><div class="line">                &#125;);</div><div class="line">                //格式化高亮文本</div><div class="line">                var markup = $this.html();</div><div class="line">                markup = $.fn.highLight.format(markup);</div><div class="line">                $this.html(markup);</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    //默认参数</div><div class="line">    var defaluts = &#123;</div><div class="line">        foreground: 'red',</div><div class="line">        background: 'yellow'</div><div class="line">    &#125;;</div><div class="line">    //公共的格式化 方法. 默认是加粗，用户可以通过覆盖该方法达到不同的格式化效果。</div><div class="line">    $.fn.highLight.format = function (str) &#123;</div><div class="line">        return "&lt;strong&gt;" + str + "&lt;/strong&gt;";</div><div class="line">    &#125;</div><div class="line">    //私有方法，检测参数是否合法</div><div class="line">    function isValid(options) &#123;</div><div class="line">        return !options || (options &amp;&amp; typeof options === "object") ? true : false;</div><div class="line">    &#125;</div><div class="line">&#125;)(window.jQuery);</div></pre></td></tr></table></figure>
+<p><strong>调用</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="comment">//调用者覆盖 插件暴露的共公方法</span></div><div class="line">$.fn.highLight.format = <span class="function"><span class="keyword">function</span> (<span class="params">txt</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"&lt;em&gt;"</span> + txt + <span class="string">"&lt;/em&gt;"</span></div><div class="line">&#125;</div><div class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">"p"</span>).highLight(&#123; foreground: <span class="string">'orange'</span>, background: <span class="string">'#ccc'</span> &#125;); <span class="comment">//调用自定义 高亮插	件</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>参考</strong><br><a href="http://www.cnblogs.com/joey0210/p/3408349.html#" target="_blank" rel="external">参考地址</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[函数默认值的写法]]></title>
+      <url>http://yoursite.com/2017/05/21/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E5%86%99%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p><strong><em>如何给函数添加默认值</em></strong> </p>
+<ul>
+<li><p>es5 可以根据函数参数类型<code>typeof</code> 、函数的个数位置 <code>arguments</code>对象来判断</p>
+<ul>
+<li>使用jq 的函数扩展 <code>$.extend</code>或其他函数库来扩展；</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>es6 的函数解构定义默认值</strong></li>
+</ul>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">一般参数默认都是传一个对象；</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">(&#123;a=21,b=4&#125;=&#123;&#125;)</span><span class="comment">&#123;</span></span></div><div class="line">  console.log(a+b)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="title">fn</span><span class="params">(&#123;a:400&#125;)</span></div></pre></td></tr></table></figure>
+<p>缺点就是如果参数很多这样传感觉不清爽</p>
+<ul>
+<li>使用对象新属性 <code>Object.assign</code>的合并功能</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj=&#123;</div><div class="line">  x:<span class="number">11</span>,</div><div class="line">  y:<span class="number">22</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ob</span>(<span class="params">opts</span>)</span>&#123;</div><div class="line">   opts=<span class="built_in">Object</span>.assign(obj,opts)</div><div class="line">  <span class="built_in">console</span>.log(opts.x+opts.y)</div><div class="line">&#125;</div><div class="line"></div><div class="line">ob(&#123;y:<span class="number">55</span>&#125;)</div></pre></td></tr></table></figure>
+<p>使用 对象的扩展运算符  <code>...</code> es2017开始支持</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> fn (opts)&#123;</div><div class="line">  console.log(opts.x+opts.y)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> de=&#123;x:<span class="number">10</span>,y:<span class="number">5</span>&#125;</div><div class="line"><span class="keyword">let</span> we=&#123;x:<span class="number">50</span>&#125;</div><div class="line">fn(&#123;...de,...we&#125;)</div></pre></td></tr></table></figure>
+<p>扩展运算符的写法看起来更加简洁明了，其原理就是对象解构，然后属性重复的话后者覆盖前者。</p>
+<p><strong>扩展</strong></p>
+<blockquote>
+<p>Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
+</blockquote>
+<p>所以其作用很广泛</p>
+<ol>
+<li>为类（对象）添加属性和方法，可以方便扩展类和对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> <span class="built_in">Object</span>.assign(SomeClass.prototype, &#123;</div><div class="line">  someMethod(arg1, arg2) &#123;</div><div class="line">    ···</div><div class="line">  &#125;,</div><div class="line">  anotherMethod() &#123;</div><div class="line">    ···</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 等同于下面的写法</span></div><div class="line">SomeClass.prototype.someMethod = <span class="function"><span class="keyword">function</span> (<span class="params">arg1, arg2</span>) </span>&#123;</div><div class="line">  ···</div><div class="line">&#125;;</div><div class="line">SomeClass.prototype.anotherMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  ···</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ol>
+<li>克隆对象</li>
+<li>合并多个对象</li>
+<li>为属性指定默认值</li>
+</ol>
+<p><strong>参考</strong></p>
+<p><a href="http://es6.ruanyifeng.com/#docs/object" target="_blank" rel="external">参考链接</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Date对象]]></title>
+      <url>http://yoursite.com/2016/12/18/Date%E5%AF%B9%E8%B1%A1/</url>
+      <content type="html"><![CDATA[<h1 id="Date对象的使用"><a href="#Date对象的使用" class="headerlink" title="Date对象的使用"></a>Date对象的使用</h1><hr>
+<h2 id="date对象简述"><a href="#date对象简述" class="headerlink" title="date对象简述"></a>date对象简述</h2><h3 id="Date-与new-Date"><a href="#Date-与new-Date" class="headerlink" title="Date()与new Date()"></a>Date()与new Date()</h3><p><code>Date()</code>可以当作普通函数直接调用，无论有没有参数，返回的都是当前的时间字符串<br><code>new Date()</code>是实例化一个日期对象，有无参数时：<br>1.不传参数时：返回当前世界的字符串<br>2.milliseconds，1970年1月1日00:00:00 UTC开始计算的毫秒数作为参数。（可以为负值表示1970以前）<br>3.datestring，时间值字符串形式多种，常用的有<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">new Date(&apos;2013-2-15&apos;)</div><div class="line">new Date(&apos;2013/2/15&apos;)</div><div class="line">new Date(&apos;02/15/2013&apos;)</div></pre></td></tr></table></figure></p>
+<pre><code>事实上所用可以被`Date.parse()`解析的都可以传进去
+</code></pre><p> 4.new Date(year, month [, day, hours, minutes, seconds, ms])</p>
+<pre><code>&gt; 如果采用这种格式，最少需要提供两个参数（年和月），其他参数都是可选的，默认等于0。因为如果只使用“年”这一个参数，Date对象会将其解释为毫秒数。
+</code></pre><hr>
+<p> new Date()默认会自动调用<code>Date.parse()</code>与<code>Date.UTC()</code>方法</p>
+<ul>
+<li><code>Date.parse()</code>解析日期字符串</li>
+<li><code>Date.UTC()</code>解析上面4的方法</li>
+</ul>
+<p><strong>new Date()参数合法性与智能折算</strong><br>字符串不合法时，返回NaN或Invalid Date。如<code>new Date(&#39;2016-12-32&#39;)</code>；<br>使用4的方法，会自动折算,如<code>new Date(2016,12,33)</code></p>
+<h2 id="日期的运算"><a href="#日期的运算" class="headerlink" title="日期的运算"></a>日期的运算</h2><ul>
+<li>加法—字符串运算</li>
+<li>减法–数值运算</li>
+<li>全等 –都是false</li>
+</ul>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><ul>
+<li>Date.parse()<blockquote>
+<p>方法用来解析日期字符串，返回距离1970年1月1日 00:00:00的毫秒数。<br>失败返回NaN</p>
+</blockquote>
+</li>
+<li>Date.UTC()<blockquote>
+<p>Date对象返回的都是当前时区的时间。Date.UTC方法可以返回UTC时间（世界标准时间）</p>
+</blockquote>
+</li>
+<li>Date.now() es5方法<blockquote>
+<p>方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><blockquote>
+<p>to类：从Date对象返回一个字符串，表示指定的时间。<br>get类：获取Date对象的日期和时间。<br>set类：设置Date对象的日期和时间。</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用hexo 配合这个编辑器 和git 管理自己的博客]]></title>
+      <url>http://yoursite.com/2016/07/03/new-pc/</url>
+      <content type="html"><![CDATA[<h3 id="在linux-系统上编辑文本总是那么不爽，于是准备迁移到windows上"><a href="#在linux-系统上编辑文本总是那么不爽，于是准备迁移到windows上" class="headerlink" title="在linux 系统上编辑文本总是那么不爽，于是准备迁移到windows上"></a>在linux 系统上编辑文本总是那么不爽，于是准备迁移到windows上</h3><p>所以试试这个绑定</p>
+<ul>
+<li>首先什么是token啊</li>
+<li>然后这这个另存为之后会不会给我的本地的冲突啊，或者说我的本地只是不做同步，除非配置文件修改？</li>
+<li>然后这个文件就会默认的给我同步上去了？？？</li>
+<li>带着这些疑惑，我就试试看吧，看看如何</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://yoursite.com/2016/07/03/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
