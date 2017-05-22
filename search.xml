@@ -4,13 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[tb]]></title>
-      <url>http://yoursite.com/2017/05/21/tb/</url>
-      <content type="html"><![CDATA[<p>sfsdkjf sdfkj 测试同步</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[如何写jquery插件]]></title>
       <url>http://yoursite.com/2017/05/21/%E5%A6%82%E4%BD%95%E5%86%99jquery%E6%8F%92%E4%BB%B6/</url>
       <content type="html"><![CDATA[<h3 id="jquery的插件机制"><a href="#jquery的插件机制" class="headerlink" title="jquery的插件机制"></a>jquery的插件机制</h3><ul>
@@ -23,6 +16,54 @@
 <p><strong>调用</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="comment">//调用者覆盖 插件暴露的共公方法</span></div><div class="line">$.fn.highLight.format = <span class="function"><span class="keyword">function</span> (<span class="params">txt</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"&lt;em&gt;"</span> + txt + <span class="string">"&lt;/em&gt;"</span></div><div class="line">&#125;</div><div class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">"p"</span>).highLight(&#123; foreground: <span class="string">'orange'</span>, background: <span class="string">'#ccc'</span> &#125;); <span class="comment">//调用自定义 高亮插	件</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p><strong>参考</strong><br><a href="http://www.cnblogs.com/joey0210/p/3408349.html#" target="_blank" rel="external">参考地址</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[切图的技巧]]></title>
+      <url>http://yoursite.com/2017/05/21/%E5%88%87%E5%9B%BE%E7%9A%84%E6%8A%80%E5%B7%A7/</url>
+      <content type="html"><![CDATA[<h2 id="几种切图的技巧"><a href="#几种切图的技巧" class="headerlink" title="几种切图的技巧"></a>几种切图的技巧</h2><blockquote>
+<p>我个人使用的是cc2015 比较之前的版本在切图上有些不同的；在工作中我时常用这么几种切图方式</p>
+</blockquote>
+<h3 id="切单个图片"><a href="#切单个图片" class="headerlink" title="切单个图片"></a>切单个图片</h3><ul>
+<li><strong>转化为智能对象</strong></li>
+</ul>
+<p>这个是我从慕课网上听来的，大概的思路就是：先转化成智能对象– 然后使用选择工具划区域（可以画大点范围，但要包住智能对象）– 然后就是使用ctrl+c –然后 ctrl+N 即新建对象– 最后ctrl+v;然后就是所谓的ctrl+shift+alt+s 保存网页格式即可；</p>
+<ul>
+<li><strong>直接图层导出png</strong></li>
+</ul>
+<p>由于设置的默认格式是png 的，这个可以在首选项中设置的，一般情况下用这种格式也没什么不好的吧</p>
+<ul>
+<li><strong>使用图像资源</strong></li>
+</ul>
+<p>这个算是cc提供的新功能了吧，首先文件–图像资源勾选上–然后在你选择的图层上面直接命名，命名的格式随意，你就会看到在psd文件的目录下生成一个默认的文件夹，里面就是你切好的图片；</p>
+<ul>
+<li><strong>常规切图法</strong></li>
+</ul>
+<p>这个就是选择图层之后，然后拉线，之后用切片工具切图然后保存就可以了；</p>
+<blockquote>
+<p>以上各有个的优点吧，反正配合使用就好了；</p>
+</blockquote>
+<h3 id="切多个图片"><a href="#切多个图片" class="headerlink" title="切多个图片"></a>切多个图片</h3><ul>
+<li><strong>使用标尺拉线</strong></li>
+</ul>
+<p>比较传统的切图方式，就是使用标尺拉线，然后选择标尺的基于标尺，就可以快速生成，很多切片，然后删除不需要的</p>
+<ul>
+<li><strong>使用图层的</strong></li>
+</ul>
+<p>使用图层的新建基于图层的切片，这个是基于图层的操作的，也就是说要选中很多相应的图层，然后使用 图层–新建基于图层的切片–然后就是保存咯</p>
+<h3 id="如何制作雪碧图"><a href="#如何制作雪碧图" class="headerlink" title="如何制作雪碧图"></a>如何制作雪碧图</h3><ul>
+<li><p><strong>fireworks</strong></p>
+<p>我之前一直使用fireworks来制作雪碧图，虽然早就不更新了，但是使用fireworks来测量和生成雪碧图还是挺快速的</p>
+</li>
+<li><p><strong>然后是看到了使用compass的函数来拼和雪碧图</strong></p>
+</li>
+</ul>
+<p>这样要使用sass配合compass封装的函数，我只是看到有人这么做，但是还没有自己实践过，后来看到compass也停止更新了，而且很多里面的函数也没有太多用处，大不了sass玩的溜直接仿一个；</p>
+<ul>
+<li><strong>然后就是其他一些小型的工具、在线或者线下的</strong></li>
+</ul>
+<p>这个就更有针对性。而且好像要配置一些参数之类的，我觉得很规则的还可以，如果是非规则的，还不如直接用ps去拼呢；</p>
 ]]></content>
     </entry>
     
