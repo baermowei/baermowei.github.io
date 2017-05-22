@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hello world, hello me, baermowei" />
+  <meta name="keywords" content="函数,this,javascript, es6," />
 
 
 
@@ -102,15 +102,40 @@
 
 
 
-<meta name="description" content="justmoving!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="baermowei's blog">
-<meta property="og:url" content="http://yoursite.com/tags/javascript-对象-es6/index.html">
+<meta name="description" content="js 中this用法
+在一般函数方法中使用 this 指代全局对象
+作为对象方法调用，this 指代上级对象
+作为构造函数调用，this 指代new 出的对象
+apply/call 调用 ，apply方法作用是改变函数的调用对象apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。
+
+
+
+ 5.bind方法用于将函数体内的this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数this 的总结 以及call bind apply">
+<meta property="og:url" content="http://yoursite.com/2017/05/22/函数this 的总结 以及call bind apply/index.html">
 <meta property="og:site_name" content="baermowei's blog">
-<meta property="og:description" content="justmoving!">
+<meta property="og:description" content="js 中this用法
+在一般函数方法中使用 this 指代全局对象
+作为对象方法调用，this 指代上级对象
+作为构造函数调用，this 指代new 出的对象
+apply/call 调用 ，apply方法作用是改变函数的调用对象apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。
+
+
+
+ 5.bind方法用于将函数体内的this">
+<meta property="og:updated_time" content="2017-05-22T13:57:13.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="baermowei's blog">
-<meta name="twitter:description" content="justmoving!">
+<meta name="twitter:title" content="函数this 的总结 以及call bind apply">
+<meta name="twitter:description" content="js 中this用法
+在一般函数方法中使用 this 指代全局对象
+作为对象方法调用，this 指代上级对象
+作为构造函数调用，this 指代new 出的对象
+apply/call 调用 ，apply方法作用是改变函数的调用对象apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。
+
+
+
+ 5.bind方法用于将函数体内的this">
 
 
 
@@ -131,9 +156,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/javascript-对象-es6/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/22/函数this 的总结 以及call bind apply/"/>
 
-  <title> 标签: javascript,对象,es6 | baermowei's blog </title>
+  <title> 函数this 的总结 以及call bind apply | baermowei's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +179,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,53 +300,188 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        javascript,对象,es6
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                函数this 的总结 以及call bind apply
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-22T21:57:13+08:00" content="2017-05-22">
+              2017-05-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/22/函数this 的总结 以及call bind apply/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/22/函数this 的总结 以及call bind apply/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <ul>
+<li><h2 id="js-中this用法"><a href="#js-中this用法" class="headerlink" title="js 中this用法"></a>js 中this用法</h2><ol>
+<li>在一般函数方法中使用 this 指代全局对象</li>
+<li>作为对象方法调用，this 指代上级对象</li>
+<li>作为构造函数调用，this 指代new 出的对象</li>
+<li>apply/call 调用 ，apply方法作用是改变函数的调用对象<br>apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。</li>
+</ol>
+</li>
+</ul>
+<p> 5.bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。</p>
+<p>6.函数绑定运算符是并排的两个双冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。    </p>
+<ul>
+<li><h2 id="apply-call-bind的使用"><a href="#apply-call-bind的使用" class="headerlink" title="apply /call  bind的使用"></a>apply /call  bind的使用</h2></li>
+</ul>
+<p><a href="http://javascript.ruanyifeng.com/oop/this.html" target="_blank" rel="external">es5的this几种情况</a></p>
+<p><a href="http://www.cnblogs.com/pabitel/p/5922511.html" target="_blank" rel="external">es5 this</a> / <a href="http://javascript.ruanyifeng.com/oop/this.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/oop/this.html</a><br><a href="https://segmentfault.com/a/1190000003046071" target="_blank" rel="external">js中this</a></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/05/21/函数默认值的写法/" itemprop="url">
-              
-                <span itemprop="name">函数默认值的写法</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-21T15:28:17+08:00"
-              content="2017-05-21" >
-          05-21
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/函数-this-javascript-es6/" rel="tag">#函数,this,javascript, es6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/22/input输入框总结/" rel="next" title="input输入框总结">
+                <i class="fa fa-chevron-left"></i> input输入框总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/22/函数基础/" rel="prev" title="函数总结">
+                函数总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/22/函数this 的总结 以及call bind apply/"
+           data-title="函数this 的总结 以及call bind apply" data-url="http://yoursite.com/2017/05/22/函数this 的总结 以及call bind apply/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -341,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/imgs/th.jpg"
@@ -414,6 +583,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-中this用法"><span class="nav-number">1.</span> <span class="nav-text">js 中this用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-call-bind的使用"><span class="nav-number">2.</span> <span class="nav-text">apply /call  bind的使用</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -510,6 +690,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

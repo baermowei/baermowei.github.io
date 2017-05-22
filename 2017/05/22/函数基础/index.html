@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hello world, hello me, baermowei" />
+  <meta name="keywords" content="javascript , 函数 , function," />
 
 
 
@@ -102,15 +102,43 @@
 
 
 
-<meta name="description" content="justmoving!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="baermowei's blog">
-<meta property="og:url" content="http://yoursite.com/tags/javascript-对象-es6/index.html">
+<meta name="description" content="函数的基础和注意点
+
+1. return       
+2. 调用自身形成递归
+3. 无重载
+4. **参数传递**方式
+5. **arguments对象** 
+    arguments不是真正的数组，对象除了可以读取参数，还可以为参数赋值（严格模式不允许这种用法）。
+    有length 和callee属性；
+    之前用arguments的地方可以被es6的解构和==rest==给取代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数总结">
+<meta property="og:url" content="http://yoursite.com/2017/05/22/函数基础/index.html">
 <meta property="og:site_name" content="baermowei's blog">
-<meta property="og:description" content="justmoving!">
+<meta property="og:description" content="函数的基础和注意点
+
+1. return       
+2. 调用自身形成递归
+3. 无重载
+4. **参数传递**方式
+5. **arguments对象** 
+    arguments不是真正的数组，对象除了可以读取参数，还可以为参数赋值（严格模式不允许这种用法）。
+    有length 和callee属性；
+    之前用arguments的地方可以被es6的解构和==rest==给取代">
+<meta property="og:updated_time" content="2017-05-22T13:57:13.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="baermowei's blog">
-<meta name="twitter:description" content="justmoving!">
+<meta name="twitter:title" content="函数总结">
+<meta name="twitter:description" content="函数的基础和注意点
+
+1. return       
+2. 调用自身形成递归
+3. 无重载
+4. **参数传递**方式
+5. **arguments对象** 
+    arguments不是真正的数组，对象除了可以读取参数，还可以为参数赋值（严格模式不允许这种用法）。
+    有length 和callee属性；
+    之前用arguments的地方可以被es6的解构和==rest==给取代">
 
 
 
@@ -131,9 +159,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/javascript-对象-es6/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/22/函数基础/"/>
 
-  <title> 标签: javascript,对象,es6 | baermowei's blog </title>
+  <title> 函数总结 | baermowei's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +182,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,53 +303,201 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        javascript,对象,es6
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                函数总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-22T21:57:13+08:00" content="2017-05-22">
+              2017-05-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/22/函数基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/22/函数基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <ul>
+<li><h2 id="函数的基础和注意点"><a href="#函数的基础和注意点" class="headerlink" title="函数的基础和注意点"></a>函数的基础和注意点</h2></li>
+</ul>
+<pre><code>1. return       
+2. 调用自身形成递归
+3. 无重载
+4. **参数传递**方式
+5. **arguments对象** 
+    arguments不是真正的数组，对象除了可以读取参数，还可以为参数赋值（严格模式不允许这种用法）。
+    有length 和callee属性；
+    之前用arguments的地方可以被es6的解构和==rest==给取代了
+</code></pre><ul>
+<li><h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><p>   1.变量的作用域<br>   2 .<strong>函数本身的作用域</strong>：</p>
+</li>
+</ul>
+<pre><code>&gt;函数本身也是一个值，也有自己的作用域。它的作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。
+&gt;所以才需要参数啊，数值都基于参数；
 
-      <h1 class="post-title">
+3.==闭包==  :内部函数可以读取外部函数的局部变量，把此内部函数返回，就可以在外部读取其内部变量。
+
+**闭包作用**： 读取函数内部的变量，一直保持在内存中，二是 使得其诞生环境一直存在；
+
+原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制回收。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(num)</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(num++)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> out=add(<span class="number">3</span>)</div><div class="line">out()<span class="comment">// 3,3</span></div><div class="line">out()<span class="comment">//4</span></div></pre></td></tr></table></figure>
+
+
+另一个for循环的
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">       (<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">           <span class="comment">// 变量 i 的值在传递到这个作用域时被复制给了 a,</span></div><div class="line">           <span class="comment">// 因此这个值就不会随外部变量而变化了</span></div><div class="line">           setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">               <span class="built_in">console</span>.log(a);</div><div class="line">           &#125;, <span class="number">1000</span>);</div><div class="line">       &#125;)(i); <span class="comment">// 我们在这里传入参数来"闭包"变量</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="立即调用的函数表达式（IIFE）"><a href="#立即调用的函数表达式（IIFE）" class="headerlink" title="立即调用的函数表达式（IIFE）"></a>立即调用的函数表达式（IIFE）</h3>1.写法<br>2.目的：一是不必为函数命名，避免了污染全局变量；二是IIFE内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。<br>3.es6的 ==作用域{}== 可以取代这种写法了；</li>
+</ul>
+<p><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">参考blog</a></p>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/05/21/函数默认值的写法/" itemprop="url">
-              
-                <span itemprop="name">函数默认值的写法</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-21T15:28:17+08:00"
-              content="2017-05-21" >
-          05-21
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript-函数-function/" rel="tag">#javascript , 函数 , function</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/22/函数this 的总结 以及call bind apply/" rel="next" title="函数this 的总结 以及call bind apply">
+                <i class="fa fa-chevron-left"></i> 函数this 的总结 以及call bind apply
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/22/函数基础/"
+           data-title="函数总结" data-url="http://yoursite.com/2017/05/22/函数基础/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -341,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/imgs/th.jpg"
@@ -414,6 +599,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的基础和注意点"><span class="nav-number">1.</span> <span class="nav-text">函数的基础和注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#立即调用的函数表达式（IIFE）"><span class="nav-number">2.1.</span> <span class="nav-text">立即调用的函数表达式（IIFE）</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -510,6 +706,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
